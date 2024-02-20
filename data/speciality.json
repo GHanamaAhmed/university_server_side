@@ -1,0 +1,17 @@
+[
+  {
+    "faculte": "Mathematics, Computer Science, and Material Science",
+    "departement": "Mathematics, and Computer Science",
+    "speciality": "Computer Science"
+  },
+  {
+    "faculte": "Mathematics, Computer Science, and Material Science",
+    "departement": "Mathematics, and Computer Science",
+    "speciality": "Mathematics"
+  },
+  {
+    "faculte": "Mathematics, Computer Science, and Material Science",
+    "departement": "Material Science",
+    "speciality": "pyhsics"
+  }
+]
