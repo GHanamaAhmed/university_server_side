@@ -17,9 +17,9 @@ const googleAuth = require("./routes/auth/googleAuth");
 const localAuth = require("./routes/auth/localAuth");
 const announcement = require("./routes/announcement");
 const admin = require("./routes/admin");
-const auth=require("./routes/auth/auth");
+const auth = require("./routes/auth/auth");
 const speciality = require("./routes/speciality");
-const files=require("./routes/files")
+const files = require("./routes/files");
 const dbConnect = require("./config/dbConnect");
 const app = express();
 app.use(
@@ -28,7 +28,11 @@ app.use(
     credentials: true,
   })
 );
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false,
+  })
+);
 app.use(cookieParser());
 app.use(express.json({ limit: "512mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "512mb" }));
@@ -43,7 +47,7 @@ app.use(
     }),
   })
 );
-app.use('/uploads', express.static('uploads'));
+app.use("/uploads", express.static("uploads"));
 require("./config/googleStrategy")(passport);
 require("./config/localStrategy")(passport);
 app.use(passport.initialize());
@@ -55,7 +59,7 @@ app.use("/auth", auth);
 app.use("/announcement", announcement);
 app.use("/admin", admin);
 app.use("/speciality", speciality);
-app.use("/files",files)
+app.use("/files", files);
 
 // create upload folder if not exist
 if (!fs.existsSync("uploads")) {

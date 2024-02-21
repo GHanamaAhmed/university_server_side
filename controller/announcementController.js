@@ -57,7 +57,7 @@ module.exports.getAnnouncement = async (req, res) => {
     const params = req.params;
     const posts = await announcementModel
       .find()
-      .sort({ createdAt: reversed === "true" ? -1 : 1 })
+      .sort({ createdAt: reversed === "true" ? 1 : +1 })
       .skip(min)
       .limit(max);
     res.status(200).send(posts);

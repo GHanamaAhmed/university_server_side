@@ -15,6 +15,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 router.route("/admin/:id?").get(isAdmin, announcement.getByIdAdmin);
 router.route("/annoncement/:id").get(announcement.getAnnouncementById);
+router.route("/view/:id").get(announcement.increaseViews);
 router
   .route("/:faculte?/:departement?/:speciality?/:year?")
   .post(upload.single("thumbnail"), isAdmin, announcement.postAnnouncement)
